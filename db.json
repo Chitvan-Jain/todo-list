@@ -1,0 +1,54 @@
+{
+  "users": [
+    {
+      "email": "user1@example.com",
+      "username": "user1",
+      "password": "password1",
+      "id": "8667"
+    },
+    {
+      "email": "user2@example.com",
+      "username": "user2",
+      "password": "password2",
+      "id": "e0d3"
+    },
+    {
+      "id": "6d30",
+      "email": "mail@gmail.com",
+      "username": "user3",
+      "password": "password3"
+    },
+    {
+      "id": "2529",
+      "email": "mail123@gmailcom",
+      "username": "user4",
+      "password": "password4"
+    }
+  ],
+  "tasks": [
+    {
+      "userId": "user1",
+      "title": "Task 1",
+      "completed": false,
+      "id": "a884"
+    },
+    {
+      "userId": "user1",
+      "title": "Task 2",
+      "completed": true,
+      "id": "7b46"
+    },
+    {
+      "userId": "user2",
+      "title": "Task 3",
+      "completed": false,
+      "id": "c765"
+    },
+    {
+      "userId": "user3",
+      "title": "Task 1",
+      "completed": false,
+      "id": "c7"
+    }
+  ]
+}
