@@ -27,28 +27,14 @@
   ],
   "tasks": [
     {
-      "userId": "user1",
-      "title": "Task 1",
-      "completed": false,
-      "id": "a884"
+      "title": "Complete Angular project",
+      "status": "To-do",
+      "username": "user1"
     },
     {
-      "userId": "user1",
-      "title": "Task 2",
-      "completed": true,
-      "id": "7b46"
-    },
-    {
-      "userId": "user2",
-      "title": "Task 3",
-      "completed": false,
-      "id": "c765"
-    },
-    {
-      "userId": "user3",
-      "title": "Task 1",
-      "completed": false,
-      "id": "c7"
+      "title": "Deploy application",
+      "status": "Completed",
+      "username": "user1"
     }
   ]
 }

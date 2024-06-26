@@ -1,12 +1,37 @@
-<!-- <div [class.hidden]="isHidden" (click)="toggleHidden()">
-hello world!
-</div> -->
+<button (click)="toggleHidden()">Create task </button>
+
+<div [class.hidden]="isHidden">
+  <div class="panel">
+    <div class="form-panel">
+      <p>Create Task</p>
+      <form (ngSubmit)="addTask()" #taskForm="ngForm">
+        <div class="field">
+          <label for="title" class="task-heading">Title</label>
+          <input type="text" name="title" [(ngModel)]="newTask.title" required />
+        </div>
+        <div class="field">
+          <div>
+            <label for="status">Status:</label>
+            <select id="status" name="status" [(ngModel)]="newTask.status" required>
+              <option value="" disabled selected>Choose status:</option>
+              <option value="To-do">To-do</option>
+              <option value="Completed">Completed</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit">Add Task</button>
+      </form>
+    </div>
+  </div>
+</div>
 
 <div *ngIf="tasks.length > 0">
   <ul>
     <li *ngFor="let task of tasks">
       <div>{{ task.title }}</div>
-      <div>{{ task.completed ? "Completed" : "Not Completed" }}</div>
+      <div>{{ task.status }}</div>
+      <button (click)="removeTask(task.id)">Remove</button>
+      <button (click)="markAsComplete(task.id)" [disabled]="task.completed">Mark as Complete</button>
     </li>
   </ul>
 </div>

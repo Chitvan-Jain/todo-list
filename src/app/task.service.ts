@@ -13,6 +13,16 @@ export class TaskService {
   getTasksForUser(username: string): Observable<any[]> {
     return this.http.get<any[]>(`${this.tasksUrl}?userId=${username}`);
   }
+  addTask(task: any): Observable<any> {
+    return this.http.post<any>(this.tasksUrl, task);
+  }
 
-  // Additional methods to add, update, and delete tasks can be added here
+  removeTask(taskId: number): Observable<any> {
+    return this.http.delete<any>(`${this.tasksUrl}/${taskId}`);
+  }
+
+  updateTask(taskId: number, updates: any): Observable<any> {
+    return this.http.patch<any>(`${this.tasksUrl}/${taskId}`, updates);
+  }
+
 }
