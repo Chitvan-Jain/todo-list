@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
 })
 export class TasksComponent implements OnInit{
   tasks: any[] = [];
-
+  // isHidden: boolean = true;
   constructor(private taskService: TaskService, private authService: AuthService) {}
 
   ngOnInit(): void {
@@ -24,4 +24,7 @@ export class TasksComponent implements OnInit{
       });
     }
   }
+  // toggleHidden() {
+  //   this.isHidden = !this.isHidden;
+  // }
 }

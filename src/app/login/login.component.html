@@ -1,11 +1,43 @@
-<form (ngSubmit)="onFormSubmit()" #f="ngForm">
-    <div>
-      <label for="username">Username: </label>
-      <input type="text" name="username" [(ngModel)]="username" />
+<div class="container">
+  <div class="nav">
+    <img src="assets/images/logo.svg" />
+    <p>ToDo List</p>
+  </div>
+
+  <div class="panel">
+    <div class="login-panel">
+      <p class="login-title">Log in</p>
+      <form (ngSubmit)="onFormSubmit()" #f="ngForm" class="login-form">
+        <div class="field">
+          <div class="login__field">
+            <input
+              type="text"
+              name="username"
+              [(ngModel)]="username"
+              class="login__input"
+              required
+            />
+            <label for="username" class="login__label">Username</label>
+          </div>
+        </div>
+        <div class="field">
+          <div class="login__field">
+            <input
+              type="password"
+              name="password"
+              [(ngModel)]="password"
+              class="login__input"
+              required
+            />
+            <label for="password" class="login__label">Password</label>
+          </div>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+      <p class="acc-exist">
+        Don't have an account? <a routerLink="/signup">Sign up</a>
+      </p>
     </div>
-    <div>
-      <label for="password">Password: </label>
-      <input type="password" name="password" [(ngModel)]="password" />
-    </div>
-    <button type="submit">Submit</button>
-  </form>
+    <img src="assets/images/vector1.svg" />
+  </div>
+</div>
