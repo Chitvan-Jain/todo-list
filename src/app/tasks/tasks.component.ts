@@ -3,17 +3,28 @@ import { TaskService } from '../task.service';
 import { AuthService } from '../auth.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-tasks',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    MatIconModule
+  ],
   templateUrl: './tasks.component.html',
   styleUrls: ['./tasks.component.css'],
 })
 export class TasksComponent implements OnInit {
   tasks: any[] = [];
   isHidden: boolean = true;
+  filteredTasks: any[] = [];
+  first: boolean = true;
+  second: boolean = true;
+  third: boolean = false;
+  fourth: boolean = false;
+
   newTask = {
     title: '',
     status: '',
@@ -31,12 +42,32 @@ export class TasksComponent implements OnInit {
       this.newTask.username = username;
       this.taskService.getTasksForUser(username).subscribe((tasks) => {
         this.tasks = tasks;
+        this.filterTasks(this.first)
       });
+    }
+
+  }
+
+  filterTasks(first: boolean) {
+    if (first) {
+      this.filteredTasks = this.tasks.filter(task => task.status === 'To-do');
+    } else {
+      this.filteredTasks = this.tasks.filter(task => task.status === 'Completed');
     }
   }
 
   toggleHidden() {
     this.isHidden = !this.isHidden;
+  }
+
+  toggletoggle() {
+    this.first = !this.first;
+    this.second = !this.second;
+    this.third = !this.third;
+    this.fourth = !this.fourth;
+
+    this.filterTasks(this.first)
+
   }
 
   addTask() {
@@ -53,18 +84,17 @@ export class TasksComponent implements OnInit {
   removeTask(taskId: number): void {
     this.taskService.removeTask(taskId).subscribe(() => {
       this.tasks = this.tasks.filter((task) => task.id !== taskId);
+      this.filterTasks(this.first)
     });
   }
 
   markAsComplete(taskId: number): void {
-    this.taskService
-      .updateTask(taskId, { status: 'Completed', completed: true })
-      .subscribe(() => {
-        const task = this.tasks.find((task) => task.id === taskId);
-        if (task) {
-          task.status = 'Completed';
-          task.completed = true;
-        }
-      });
+    this.taskService.updateTaskStatus(taskId, 'Completed').subscribe(() => {
+      const task = this.tasks.find((task) => task.id === taskId);
+      if (task) {
+        task.status = 'Completed';
+      }
+      this.filterTasks(this.first)
+    });
   }
 }

@@ -1,38 +1,140 @@
-<button (click)="toggleHidden()">Create task </button>
+<nav>
+  <div class="center">
+    <img src="assets/images/logo.svg" />
+    <p>ToDo List</p>
+  </div>
+</nav>
+<!-- [class.hidden]="isHidden" -->
 
-<div [class.hidden]="isHidden">
+<div class="overlay" [class.hidden]="isHidden"></div>
+<div class="modal" [class.hidden]="isHidden">
   <div class="panel">
     <div class="form-panel">
-      <p>Create Task</p>
-      <form (ngSubmit)="addTask()" #taskForm="ngForm">
+      <p>
+        <span>Create Task</span
+        ><span class="cross" (click)="toggleHidden()"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="#e34432"
+          >
+            <path
+              d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+            /></svg
+        ></span>
+      </p>
+
+      <form (ngSubmit)="addTask()" #taskForm="ngForm" class="form-itself">
         <div class="field">
-          <label for="title" class="task-heading">Title</label>
-          <input type="text" name="title" [(ngModel)]="newTask.title" required />
+          <label for="title" class="task-heading">Task: </label>
+          <input
+            class="task"
+            type="text"
+            name="title"
+            [(ngModel)]="newTask.title"
+            required
+          />
         </div>
         <div class="field">
           <div>
-            <label for="status">Status:</label>
-            <select id="status" name="status" [(ngModel)]="newTask.status" required>
+            <label for="status">Status: </label>
+            <select
+              id="status"
+              name="status"
+              [(ngModel)]="newTask.status"
+              required
+            >
               <option value="" disabled selected>Choose status:</option>
               <option value="To-do">To-do</option>
               <option value="Completed">Completed</option>
             </select>
           </div>
         </div>
-        <button type="submit">Add Task</button>
+        <div class="btn-div">
+        <button type="submit" class="submit-btn">Add Task</button>
+        </div>
       </form>
     </div>
   </div>
 </div>
 
-<div *ngIf="tasks.length > 0">
-  <ul>
-    <li *ngFor="let task of tasks">
-      <div>{{ task.title }}</div>
-      <div>{{ task.status }}</div>
-      <button (click)="removeTask(task.id)">Remove</button>
-      <button (click)="markAsComplete(task.id)" *ngIf="!task.completed">Mark as Complete</button>
-    </li>
-  </ul>
+<div class="task-panel">
+  <div class="panel-bar">
+    <div class="create">
+      <button class="create-btn" (click)="toggleHidden()">Create task</button>
+    </div>
+    <div class="tasks-seperator">
+      <button
+        class="btn"
+        (click)="toggletoggle()"
+        [class.second]="second"
+        [class.third]="third"
+      >
+        In-progress
+      </button>
+      <button
+        class="btn"
+        (click)="toggletoggle()"
+        [class.first]="first"
+        [class.fourth]="fourth"
+      >
+        Completed
+      </button>
+    </div>
+  </div>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Status</th>
+          <th>Remove</th>
+          <th>Mark as done</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of filteredTasks">
+          <td>{{ task.title }}</td>
+          <td>{{ task.status }}</td>
+          <td>
+            <button (click)="removeTask(task.id)">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#e34432"
+              >
+                <path
+                  d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+                />
+              </svg>
+            </button>
+          </td>
+          <td>
+            <button
+              (click)="markAsComplete(task.id)"
+              *ngIf="task.status === 'To-do'"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#e34432"
+              >
+                <path
+                  d="M382-320 155-547l57-57 170 170 366-366 57 57-423 423ZM200-160v-80h560v80H200Z"
+                />
+              </svg>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
+
 <div *ngIf="tasks.length === 0">No tasks found.</div>
