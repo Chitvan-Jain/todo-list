@@ -31,7 +31,7 @@
       <div>{{ task.title }}</div>
       <div>{{ task.status }}</div>
       <button (click)="removeTask(task.id)">Remove</button>
-      <button (click)="markAsComplete(task.id)" [disabled]="task.completed">Mark as Complete</button>
+      <button (click)="markAsComplete(task.id)" *ngIf="!task.completed">Mark as Complete</button>
     </li>
   </ul>
 </div>
