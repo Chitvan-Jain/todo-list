@@ -27,21 +27,9 @@
   ],
   "tasks": [
     {
-      "id": "5e6f",
-      "title": "Go for a run",
-      "status": "To-do",
-      "username": "user1"
-    },
-    {
-      "id": "7g8h",
-      "title": "Pay utility bills",
-      "status": "To-do",
-      "username": "user1"
-    },
-    {
       "id": "9i0j",
       "title": "Prepare for meeting",
-      "status": "To-do",
+      "status": "Completed",
       "username": "user1"
     },
     {
@@ -51,21 +39,9 @@
       "username": "user1"
     },
     {
-      "id": "a1b2",
-      "title": "Plan weekend trip",
-      "status": "To-do",
-      "username": "user1"
-    },
-    {
       "id": "b2c3",
       "title": "Organize desk",
       "status": "Completed",
-      "username": "user1"
-    },
-    {
-      "id": "c3d4",
-      "title": "Write blog post",
-      "status": "To-do",
       "username": "user1"
     },
     {
@@ -77,19 +53,13 @@
     {
       "id": "e5f6",
       "title": "Attend workshop",
-      "status": "To-do",
+      "status": "Completed",
       "username": "user1"
     },
     {
       "id": "f6g7",
       "title": "Check emails",
       "status": "Completed",
-      "username": "user1"
-    },
-    {
-      "id": "g7h8",
-      "title": "Water plants",
-      "status": "To-do",
       "username": "user1"
     },
     {
@@ -185,6 +155,12 @@
     {
       "id": "4e9c",
       "title": "go shopping",
+      "status": "To-do",
+      "username": "user1"
+    },
+    {
+      "id": "d824",
+      "title": "water plants tomorrow",
       "status": "To-do",
       "username": "user1"
     }
