@@ -27,51 +27,15 @@
   ],
   "tasks": [
     {
-      "id": "1a2b",
-      "title": "Buy groceries",
-      "status": "To-do",
-      "username": "user1"
-    },
-    {
-      "id": "2b3c",
-      "title": "Complete project report",
-      "status": "Completed",
-      "username": "user1"
-    },
-    {
-      "id": "3c4d",
-      "title": "Call the plumber",
-      "status": "To-do",
-      "username": "user1"
-    },
-    {
-      "id": "4d5e",
-      "title": "Read a book",
-      "status": "Completed",
-      "username": "user1"
-    },
-    {
       "id": "5e6f",
       "title": "Go for a run",
       "status": "To-do",
       "username": "user1"
     },
     {
-      "id": "6f7g",
-      "title": "Clean the house",
-      "status": "Completed",
-      "username": "user1"
-    },
-    {
       "id": "7g8h",
       "title": "Pay utility bills",
       "status": "To-do",
-      "username": "user1"
-    },
-    {
-      "id": "8h9i",
-      "title": "Schedule doctor appointment",
-      "status": "Completed",
       "username": "user1"
     },
     {
@@ -216,6 +180,12 @@
       "id": "v2w3",
       "title": "Practice guitar",
       "status": "Completed",
+      "username": "user1"
+    },
+    {
+      "id": "4e9c",
+      "title": "go shopping",
+      "status": "To-do",
       "username": "user1"
     }
   ]

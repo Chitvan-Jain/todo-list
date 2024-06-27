@@ -8,11 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-tasks',
   standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    MatIconModule
-  ],
+  imports: [CommonModule, FormsModule, MatIconModule],
   templateUrl: './tasks.component.html',
   styleUrls: ['./tasks.component.css'],
 })
@@ -42,17 +38,18 @@ export class TasksComponent implements OnInit {
       this.newTask.username = username;
       this.taskService.getTasksForUser(username).subscribe((tasks) => {
         this.tasks = tasks;
-        this.filterTasks(this.first)
+        this.filterTasks(this.first);
       });
     }
-
   }
 
   filterTasks(first: boolean) {
     if (first) {
-      this.filteredTasks = this.tasks.filter(task => task.status === 'To-do');
+      this.filteredTasks = this.tasks.filter((task) => task.status === 'To-do');
     } else {
-      this.filteredTasks = this.tasks.filter(task => task.status === 'Completed');
+      this.filteredTasks = this.tasks.filter(
+        (task) => task.status === 'Completed'
+      );
     }
   }
 
@@ -66,8 +63,7 @@ export class TasksComponent implements OnInit {
     this.third = !this.third;
     this.fourth = !this.fourth;
 
-    this.filterTasks(this.first)
-
+    this.filterTasks(this.first);
   }
 
   addTask() {
@@ -76,7 +72,8 @@ export class TasksComponent implements OnInit {
         this.tasks.push(task);
         this.newTask.title = '';
         this.newTask.status = '';
-        this.toggleHidden(); // Hide the form after adding the task
+        this.toggleHidden();
+        this.filterTasks(this.first);
       });
     }
   }
@@ -84,7 +81,7 @@ export class TasksComponent implements OnInit {
   removeTask(taskId: number): void {
     this.taskService.removeTask(taskId).subscribe(() => {
       this.tasks = this.tasks.filter((task) => task.id !== taskId);
-      this.filterTasks(this.first)
+      this.filterTasks(this.first);
     });
   }
 
@@ -94,7 +91,7 @@ export class TasksComponent implements OnInit {
       if (task) {
         task.status = 'Completed';
       }
-      this.filterTasks(this.first)
+      this.filterTasks(this.first);
     });
   }
 }
