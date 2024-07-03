@@ -11,7 +11,7 @@ export const routes: Routes = [
     component: LoginComponent,
   },
   {
-    path: 'tasks',
+    path: 'tasks/:username',
     component: TasksComponent,
   },
   {

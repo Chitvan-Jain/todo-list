@@ -73,6 +73,10 @@ nav {
 
 .create {
   border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+
 }
 
 .create button {
@@ -81,49 +85,28 @@ nav {
   font-size: large;
   color: white;
   background-color: #e34432;
-  border-top-left-radius: 0.8rem;
   border: none;
+  border-radius: 0.6rem;
 }
 
 .tasks-seperator {
   border-radius: 0.8rem;
-  /* background-color: #e34432; */
 }
 
 .tasks-seperator button {
   padding: 0.8rem 1rem;
   font-weight: 450;
   font-size: large;
+  background-color: #e34432;
   border: none;
+  color:  white;
 }
 
-.tasks-seperator button:last-child {
-  border-top-right-radius: 0.8rem;
+.btn.active {
+  background-color: #e34432 !important;
+  color: white !important;
 }
 
-.first {
-  color: white;
-  background-color: #e34432;
-  border-bottom-left-radius: 0.8rem;
-}
-
-.second {
-  color: #e34432;
-  background-color: white;
-  border-bottom-right-radius: 0.8rem;
-}
-
-.third {
-  color: white;
-  border-bottom-right-radius: 0.8rem;
-  background-color: #e34432;
-}
-
-.fourth {
-  color: #e34432;
-  border-bottom-left-radius: 0.8rem;
-  background-color: white;
-}
 
 .table-wrapper {
   overflow-y: auto;
@@ -208,6 +191,37 @@ thead tr{
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
   z-index: 10;
 }
+.modal-remove {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 20rem;
+  background-color: white;
+  padding: 3rem;
+  border-radius: 1rem;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.modal-remove p{
+  font-weight: 700;
+  font-size: x-large;
+margin-bottom: 0;
+}
+
+.remove-btn{
+  text-align: center;
+  margin: 2rem auto 0;
+}
+
+.remove-btn button{
+  margin: 0 1rem;
+  padding: 0.6rem 2rem;
+font-size: large;
+font-weight: 600;
+}
+
 
 .form-panel p{
 font-weight: bold;
@@ -276,3 +290,22 @@ background-color: #e34432;
 button{
   cursor: pointer;
 }
+
+.todo-bg{
+  padding: 1px 2px;
+  background: yellow;
+  border-radius: 2rem;
+}
+
+.progress-bg{
+  padding: 1px 2px;
+  background: green;
+  border-radius: 2rem;
+}
+
+.completed-bg{
+  padding: 1px 2px;
+  background: red;
+  border-radius: 2rem;
+}
+

@@ -15,11 +15,10 @@ import { MatIconModule } from '@angular/material/icon';
 export class TasksComponent implements OnInit {
   tasks: any[] = [];
   isHidden: boolean = true;
+  isRemoved: boolean = true;
+  statusFilter: string = 'To-do';
   filteredTasks: any[] = [];
-  first: boolean = true;
-  second: boolean = true;
-  third: boolean = false;
-  fourth: boolean = false;
+  removedTaskID: number | null = null;
 
   newTask = {
     title: '',
@@ -38,32 +37,26 @@ export class TasksComponent implements OnInit {
       this.newTask.username = username;
       this.taskService.getTasksForUser(username).subscribe((tasks) => {
         this.tasks = tasks;
-        this.filterTasks(this.first);
+        this.filterTasks();
       });
     }
   }
 
-  filterTasks(first: boolean) {
-    if (first) {
-      this.filteredTasks = this.tasks.filter((task) => task.status === 'To-do');
-    } else {
-      this.filteredTasks = this.tasks.filter(
-        (task) => task.status === 'Completed'
-      );
-    }
+  filterTasks() {
+    this.filteredTasks = this.tasks.filter((task) => task.status === this.statusFilter);
+  }
+
+  toggleRemove() {
+    this.isRemoved = !this.isRemoved;
   }
 
   toggleHidden() {
     this.isHidden = !this.isHidden;
   }
 
-  toggletoggle() {
-    this.first = !this.first;
-    this.second = !this.second;
-    this.third = !this.third;
-    this.fourth = !this.fourth;
-
-    this.filterTasks(this.first);
+  changeStatusFilter(status: string) {
+    this.statusFilter = status;
+    this.filterTasks();
   }
 
   addTask() {
@@ -73,15 +66,40 @@ export class TasksComponent implements OnInit {
         this.newTask.title = '';
         this.newTask.status = '';
         this.toggleHidden();
-        this.filterTasks(this.first);
+        this.filterTasks();
       });
     }
   }
 
   removeTask(taskId: number): void {
-    this.taskService.removeTask(taskId).subscribe(() => {
-      this.tasks = this.tasks.filter((task) => task.id !== taskId);
-      this.filterTasks(this.first);
+    this.removedTaskID = taskId;
+    this.toggleRemove();
+  }
+
+  cancelRemove() {
+    this.removedTaskID = null;
+    this.toggleRemove();
+  }
+
+  confirmRemove() {
+    if (this.removedTaskID !== null) {
+      this.taskService.removeTask(this.removedTaskID).subscribe(() => {
+        this.tasks = this.tasks.filter(
+          (task) => task.id !== this.removedTaskID
+        );
+        this.filterTasks();
+      });
+      this.toggleRemove();
+    }
+  }
+
+  markAsInProgress(taskId: number): void {
+    this.taskService.updateTaskStatus(taskId, 'In-progress').subscribe(() => {
+      const task = this.tasks.find((task) => task.id === taskId);
+      if (task) {
+        task.status = 'In-progress';
+      }
+      this.filterTasks();
     });
   }
 
@@ -91,7 +109,7 @@ export class TasksComponent implements OnInit {
       if (task) {
         task.status = 'Completed';
       }
-      this.filterTasks(this.first);
+      this.filterTasks();
     });
   }
 }

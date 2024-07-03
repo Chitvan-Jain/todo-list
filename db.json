@@ -23,103 +23,31 @@
       "email": "mail123@gmailcom",
       "username": "user4",
       "password": "password4"
+    },
+    {
+      "id": "f181",
+      "email": "mail123@gmail.com",
+      "username": "user7",
+      "password": "password1"
+    },
+    {
+      "id": "9bcf",
+      "email": "user1@gmail.com",
+      "username": "fdefwef",
+      "password": "password1"
+    },
+    {
+      "id": "65c1",
+      "email": "user1@example.comf",
+      "username": "wefwef",
+      "password": "21e31222"
     }
   ],
   "tasks": [
     {
-      "id": "9i0j",
-      "title": "Prepare for meeting",
-      "status": "Completed",
-      "username": "user1"
-    },
-    {
-      "id": "0j1k",
-      "title": "Fix the bike",
-      "status": "Completed",
-      "username": "user1"
-    },
-    {
-      "id": "b2c3",
-      "title": "Organize desk",
-      "status": "Completed",
-      "username": "user1"
-    },
-    {
-      "id": "d4e5",
-      "title": "Update software",
-      "status": "Completed",
-      "username": "user1"
-    },
-    {
-      "id": "e5f6",
-      "title": "Attend workshop",
-      "status": "Completed",
-      "username": "user1"
-    },
-    {
-      "id": "f6g7",
-      "title": "Check emails",
-      "status": "Completed",
-      "username": "user1"
-    },
-    {
-      "id": "h8i9",
-      "title": "Prepare dinner",
-      "status": "Completed",
-      "username": "user1"
-    },
-    {
-      "id": "i9j0",
-      "title": "Call family",
-      "status": "To-do",
-      "username": "user1"
-    },
-    {
-      "id": "j0k1",
-      "title": "Finish reading article",
-      "status": "Completed",
-      "username": "user1"
-    },
-    {
-      "id": "k1l2",
-      "title": "Send package",
-      "status": "To-do",
-      "username": "user1"
-    },
-    {
-      "id": "l2m3",
-      "title": "Review code",
-      "status": "Completed",
-      "username": "user1"
-    },
-    {
-      "id": "m3n4",
-      "title": "Write documentation",
-      "status": "To-do",
-      "username": "user1"
-    },
-    {
-      "id": "n4o5",
-      "title": "Attend team meeting",
-      "status": "Completed",
-      "username": "user1"
-    },
-    {
-      "id": "o5p6",
-      "title": "Plan budget",
-      "status": "To-do",
-      "username": "user1"
-    },
-    {
       "id": "p6q7",
       "title": "Fix bugs",
       "status": "Completed",
-      "username": "user1"
-    },
-    {
-      "id": "q7r8",
-      "title": "Buy birthday gift",
-      "status": "To-do",
       "username": "user1"
     },
     {
@@ -129,39 +57,27 @@
       "username": "user1"
     },
     {
-      "id": "s9t0",
-      "title": "Write a poem",
-      "status": "To-do",
-      "username": "user1"
-    },
-    {
-      "id": "t0u1",
-      "title": "Watch movie",
-      "status": "Completed",
-      "username": "user1"
-    },
-    {
-      "id": "u1v2",
-      "title": "Learn new recipe",
-      "status": "To-do",
-      "username": "user1"
-    },
-    {
-      "id": "v2w3",
-      "title": "Practice guitar",
-      "status": "Completed",
-      "username": "user1"
-    },
-    {
-      "id": "4e9c",
-      "title": "go shopping",
-      "status": "To-do",
-      "username": "user1"
-    },
-    {
       "id": "d824",
       "title": "water plants tomorrow",
+      "status": "In-progress",
+      "username": "user1"
+    },
+    {
+      "id": "b92e",
+      "title": "task 1",
       "status": "To-do",
+      "username": "user1"
+    },
+    {
+      "id": "bb0c",
+      "title": "user 2 task",
+      "status": "Completed",
+      "username": "user2"
+    },
+    {
+      "id": "90a1",
+      "title": "task in progress",
+      "status": "In-progress",
       "username": "user1"
     }
   ]

@@ -42,7 +42,7 @@ html {
   width: 80%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   padding: 2rem;
 }
 
@@ -62,7 +62,7 @@ html {
 
 .login-title {
   font-size: 3rem;
-  margin: 0 0 1rem;
+  margin: 1rem 0 2.5rem;
   font-weight: 500;
   color: #e34432;
 }

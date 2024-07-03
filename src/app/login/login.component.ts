@@ -18,7 +18,7 @@ export class LoginComponent {
   onFormSubmit(): void {
     this.authService.login(this.username, this.password).subscribe(success => {
       if (success) {
-        this.router.navigate(['/tasks']);
+        this.router.navigateByUrl('/tasks/' + this.username);
       } else {
         alert('Username or password not found.');
       }
